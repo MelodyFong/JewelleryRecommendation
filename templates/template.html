@@ -1,0 +1,126 @@
+<!doctype html>
+<title>{%  block title %}{% endblock %}</title>
+<style>
+    html {
+    font-family: Lato, sans-serif;
+    }
+    
+    h1 {
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    form {
+        text-align: center;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    
+    body {
+        max-width: 960 px;
+        margin: 0 auto;
+        background: white;
+        justify-content: center;
+    }
+    
+    .table {
+        display: table;
+        width: auto;
+        background-color: transparent;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    
+    .row {
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: auto;
+    }
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    
+    .column {
+        float: left;
+        width: 33%
+    }
+
+    .columncontent {
+        margin: 5px;
+        padding: 10px;
+    }
+    
+    h2 {
+        margin-left: 30px;
+        font-weight: bold;
+        margin-top: 40px;
+        text-align: left;
+    }
+    
+    .sim_img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+        height: 25%;
+        border:1px solid #ddd;
+    }
+    
+    .reco_img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 80%
+        object-fit: cover;
+        border: 1px solid #ddd;
+        background: rgba(196,227,243,0.1)
+    }
+    
+    h3 {
+        font-weight: bold;
+        margin-top: 30px;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+    }
+    
+    p {
+        text-wrap: normal;
+    }
+    
+    .mat_desc {
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .price {
+        text-align: center;
+        font-weight: bold;
+    }
+
+    p {
+        white-space: pre-wrap;
+    }
+
+    @media only screen and (max-width: 1024px) {
+        .column { width: 50% }
+    }
+
+
+</style>
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+{% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
+</section>

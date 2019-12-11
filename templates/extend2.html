@@ -1,0 +1,50 @@
+{% extends 'template.html' %}
+
+{% block header %}
+    <h1>{% block title %}Results{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <body>
+    <div>
+        <h2>Submitted Image:</h2>
+    </div>
+    <div>
+        <img alt='Submitted Image' src="{{ url_for('send_file',filename=filename) }}"  class="sim_img">
+    </div>
+    <div>
+        <h2>Recommended:</h2>
+    </div>
+    <div>
+        <form method='post' enctype=multipart/form-data>
+
+        </form>
+    </div>
+    <div class="table">
+    <div class="row">
+        {% for i in range(3) %}
+        <div class="column"><div class="columncontent">
+            <a href="{{ similarimages.product_link[i] }}"><img class="reco_img" alt='Similar Image' src={{ similarimages.main_img[i] }}></a>
+            <h3><a href="{{ similarimages.product_link[i] }}">{{ similarimages.product_name[i] }}</a></h3>
+            <p class="mat_desc">{{ similarimages.material[i] }}</p>
+            <p class="price">${{ similarimages.price_CAD[i] }} CAD</p>
+            <p>{{ similarimages.description[i] }}</p>
+            <p>{{ similarimages.detail[i] }}</p>
+        </div></div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        {% for i in range(3,6) %}
+        <div class="column"><div class="columncontent">
+            <a href="{{ similarimages.product_link[i] }}"><img class="reco_img" alt='Similar Image' src={{ similarimages.main_img[i] }}></a>
+            <h3><a href="{{ similarimages.product_link[i] }}">{{ similarimages.product_name[i] }}</a></h3>
+            <p class="mat_desc">{{ similarimages.material[i] }}</p>
+            <p class="price">${{ similarimages.price_CAD[i] }} CAD</p>
+            <p>{{ similarimages.description[i] }}</p>
+            <p>{{ similarimages.detail[i] }}</p>
+        </div></div>
+        {% endfor %}
+    </div>
+    </div>
+    </body>
+{% endblock %}
