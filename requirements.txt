@@ -1,6 +1,6 @@
 fastai==1.0.57
 PyYAML==3.13
-Pillow==4.3.0
+Pillow==8.1.1
 fastprogress==0.1.21
 numexpr==2.7.0
 Bottleneck==1.2.1
